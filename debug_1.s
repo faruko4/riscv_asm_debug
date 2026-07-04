@@ -222,3 +222,26 @@ and also neg offsets but they didnt use it for sp they use it for frame
 pointer and that was s0 
 ....i am now skipping the frame pointers concepts because first i have 
 to master only the load and sore 
+
+lets  only learn the diffirence between lh and lhu 
+
+what happens in lhu  first of all ? 
+example : 
+so the binary is 1111111110000000 which is 65408 in decimal 
+in the rule is if i use lbu to load this value first of all 
+the cpu dont care anything it just put 0 for 48 times at  the msb 
+now 48 + 16 = 64 which is perfectly for a 64 bit system that i am using 
+now 
+
+so if i use lh ? 
+for lh the cpu will see the msb is 0 or 1 if this is 0  then the left 
+bits (64 - 16 = 48) will put 0 at msb for 48 times 
+and then if there is 1 then it will put  1 at msb for 48 times 
+and thus how it can chnage the value 
+
+rule i must follow : 
+1-> the value is neg and if i use lhu the value will be unexpected 
+2-> the value is neg and if i use lh ,then the value will be neg 
+3-> the value is pos and if i use lh ,then the value will be the same 
+4-> the value is pos and if i use lhu ,then the value will be the same 
+
